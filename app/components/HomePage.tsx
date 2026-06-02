@@ -1,0 +1,369 @@
+'use client';
+import Link from 'next/link';
+import { BookOpen, FlaskConical, BarChart3, Trophy, Heart, Video, Star, CheckCircle, Users, ClipboardList, MessageSquare, Zap, ArrowRight } from 'lucide-react';
+
+const stats = [
+  { value: '15+', label: 'Years of Excellence' },
+  { value: '5000+', label: 'Students Shaped' },
+  { value: '100%', label: 'Recommend Us' },
+];
+
+const courses = [
+  { icon: BookOpen, title: '8th to 10th Standard', desc: 'CBSE, ICSE and State Board coaching with personal attention and weekly assessments.', badge: 'All Boards' },
+  { icon: FlaskConical, title: '11th and 12th Science', desc: 'Physics, Chemistry, Math and Biology with expert faculty and doubt-clearing sessions.', badge: 'PCM / PCB' },
+  { icon: BarChart3, title: '11th and 12th Commerce', desc: 'Accounts, Economics, Business Studies and B.Com coaching.', badge: 'Commerce' },
+  { icon: Trophy, title: 'JEE Preparation', desc: 'Engineering entrance exam preparation with structured problem-solving techniques.', badge: 'Engineering' },
+  { icon: Heart, title: 'NEET Preparation', desc: 'Medical entrance coaching with biology and chemistry focus.', badge: 'Medical' },
+  { icon: Video, title: 'Web Coaching', desc: 'Online concept video series by our faculty. Learn anytime, anywhere.', badge: 'Online' },
+];
+
+const strengths = [
+  { icon: Users, title: 'Personal Attention', desc: 'Every student gets individual guidance and customized doubt-clearing sessions.' },
+  { icon: ClipboardList, title: 'Weekly Tests', desc: 'Regular assessments keep students on track and build exam temperament.' },
+  { icon: MessageSquare, title: 'Parent Meetings', desc: 'Frequent Parent-Teacher Meetings keep families informed of progress.' },
+  { icon: Zap, title: 'Expert Faculty', desc: 'Dedicated teachers with years of experience across all boards and subjects.' },
+];
+
+const results = [
+  { name: 'Arjun Menon', exam: 'JEE Advanced 2024', score: 'AIR 847', badge: 'Top Rank' },
+  { name: 'Devika Nair', exam: 'NEET 2024', score: '672/720', badge: 'Top Rank' },
+  { name: 'Rahul Krishnan', exam: 'KEAM 2024', score: '99.2 %ile', badge: 'Top Rank' },
+];
+
+const testimonials = [
+  { quote: "The guidance given by the faculty at Righttway prepares students to excel in their chosen fields and become responsible human beings.", name: 'Parent, Kunnamkulam' },
+  { quote: "A fantastic coaching centre. My child improved dramatically in just one term. The weekly tests really build confidence.", name: 'Student, Class 10' },
+  { quote: "Truly commendable team. The personal attention and teacher dedication make a real difference to every student.", name: 'Parent, Thrissur' },
+];
+
+export default function HomePage() {
+  return (
+    <>
+      {/* HERO */}
+      <section
+        style={{
+          background: '#020817',
+          backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(33,50,185,0.18) 0%, transparent 70%)',
+          padding: '100px 0 80px',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Gold decorative circle */}
+        <div style={{
+          position: 'absolute', top: -80, right: -80, width: 400, height: 400,
+          borderRadius: '50%', border: '60px solid rgba(234,179,8,0.07)', pointerEvents: 'none',
+        }} />
+        <div style={{
+          position: 'absolute', top: 60, right: 40, width: 160, height: 160,
+          borderRadius: '50%', border: '2px solid rgba(234,179,8,0.12)', pointerEvents: 'none',
+        }} />
+
+        <div className="container-max">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+            {/* Left */}
+            <div>
+              <span className="badge badge-warning" style={{ marginBottom: 24 }}>
+                Kunnamkulam&apos;s #1 Coaching Centre
+              </span>
+              <h1 style={{
+                fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 5vw, 72px)',
+                lineHeight: 1.05, color: '#fff', marginBottom: 24,
+              }}>
+                Shaping Futures <br />
+                <span style={{ color: '#EAB308' }}>Since 2010</span>
+              </h1>
+              <p style={{
+                fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px',
+                color: '#E2E8F0', marginBottom: 36, maxWidth: 480,
+              }}>
+                Expert coaching for 8th Grade to Engineering students across CBSE, ICSE, and State Board. Trusted by 5000+ families across Kunnamkulam and Thrissur.
+              </p>
+              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                <Link href="/courses" className="btn-primary">
+                  Explore Courses
+                </Link>
+                <Link href="/contact" className="btn-ghost-dark">
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: Stat Cards */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {stats.map((s, i) => (
+                <div
+                  key={i}
+                  className="card"
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 20, padding: '20px 28px',
+                    background: 'rgba(255,255,255,0.97)',
+                    transform: i === 1 ? 'translateX(24px)' : undefined,
+                  }}
+                >
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 40, color: '#EAB308', lineHeight: 1 }}>
+                    {s.value}
+                  </div>
+                  <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, color: '#475569', fontWeight: 500 }}>
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST BAR */}
+      <section style={{ background: '#F1F5F9', padding: '24px 0' }}>
+        <div className="container-max">
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            gap: 0, flexWrap: 'wrap',
+          }}>
+            {['CBSE Affiliated', 'ICSE Affiliated', 'State Board', 'Since 2010'].map((item, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '0 28px' }}>
+                  <CheckCircle size={16} color="#2132B9" />
+                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, fontWeight: 600, color: '#475569' }}>
+                    {item}
+                  </span>
+                </div>
+                {i < 3 && <div style={{ width: 1, height: 24, background: '#E2E8F0' }} />}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section style={{ padding: '80px 0', background: '#fff' }}>
+        <div className="container-max">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+            <div>
+              <span className="section-label">Our Story</span>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, lineHeight: '40px', color: '#020817', marginBottom: 20 }}>
+                Founded by a Visionary Educator
+              </h2>
+              <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569', marginBottom: 20 }}>
+                Righttway was founded in 2010 with a vision to establish a benchmark coaching institution in Kunnamkulam. For over 15 years, we have shaped thousands of students, providing personal attention and guided mentorship that goes beyond textbooks.
+              </p>
+              <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569', marginBottom: 32 }}>
+                Our philosophy goes beyond academics. We prepare students to excel in their chosen fields and become responsible, humble human beings ready for the real world.
+              </p>
+              <Link href="/about" className="btn-primary">
+                Learn More About Us
+              </Link>
+            </div>
+
+            {/* Founder card */}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="card" style={{ textAlign: 'center', padding: 40, maxWidth: 320, width: '100%' }}>
+                <div style={{
+                  width: 120, height: 120, borderRadius: '50%',
+                  border: '4px solid #EAB308',
+                  background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                  margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 40,
+                }}>
+                  👤
+                </div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 20, color: '#020817', marginBottom: 6 }}>
+                  The Founder
+                </div>
+                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 16 }}>
+                  Founder and Director, Righttway
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 16 }}>
+                  {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="#EAB308" color="#EAB308" />)}
+                </div>
+                <span className="badge badge-warning">Guru of Gurus</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COURSES */}
+      <section style={{ background: '#F1F5F9', padding: '80px 0' }}>
+        <div className="container-max">
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <span className="section-label">What We Teach</span>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, lineHeight: '40px', color: '#020817' }}>
+              Courses Offered
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+            {courses.map((course, i) => {
+              const Icon = course.icon;
+              return (
+                <div key={i} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{
+                    width: 48, height: 48, background: 'rgba(33,50,185,0.08)', borderRadius: 12,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16,
+                  }}>
+                    <Icon size={22} color="#2132B9" />
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
+                    <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', lineHeight: '24px', flex: 1, paddingRight: 8 }}>
+                      {course.title}
+                    </h3>
+                    <span className="badge badge-default" style={{ flexShrink: 0, fontSize: 11 }}>{course.badge}</span>
+                  </div>
+                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, lineHeight: '24px', color: '#475569', flex: 1, marginBottom: 20 }}>
+                    {course.desc}
+                  </p>
+                  <Link
+                    href="/courses"
+                    style={{
+                      fontFamily: 'DM Sans, sans-serif', fontSize: 14, fontWeight: 600,
+                      color: '#2132B9', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6,
+                    }}
+                  >
+                    Know More <ArrowRight size={14} />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section style={{ background: '#fff', padding: '80px 0' }}>
+        <div className="container-max">
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <span className="section-label">Our Strengths</span>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, lineHeight: '40px', color: '#020817' }}>
+              Why 5000+ Families Trust Us
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24 }}>
+            {strengths.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div key={i} className="card" style={{ textAlign: 'center', padding: '32px 24px' }}>
+                  <div style={{
+                    width: 56, height: 56, background: 'rgba(33,50,185,0.08)', borderRadius: 14,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px',
+                  }}>
+                    <Icon size={26} color="#2132B9" />
+                  </div>
+                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 10 }}>
+                    {s.title}
+                  </h3>
+                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, lineHeight: '24px', color: '#475569' }}>
+                    {s.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* RESULTS */}
+      <section style={{ background: '#020817', padding: '80px 0', position: 'relative', overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', top: -100, left: -100, width: 400, height: 400,
+          borderRadius: '50%', border: '60px solid rgba(234,179,8,0.05)', pointerEvents: 'none',
+        }} />
+        <div className="container-max" style={{ position: 'relative' }}>
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <span className="badge badge-warning" style={{ marginBottom: 16 }}>Our Pride</span>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, color: '#fff' }}>
+              Students Who Made Us Proud
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24, marginBottom: 40 }}>
+            {results.map((r, i) => (
+              <div key={i} className="card" style={{ textAlign: 'center' }}>
+                <div style={{
+                  width: 72, height: 72, borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                  margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28,
+                }}>
+                  🎓
+                </div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 4 }}>
+                  {r.name}
+                </div>
+                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 8 }}>{r.exam}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 24, color: '#EAB308', marginBottom: 12 }}>
+                  {r.score}
+                </div>
+                <span className="badge badge-warning">{r.badge}</span>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <Link href="/results" className="btn-ghost-dark">
+              View All Results
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section style={{ background: '#F1F5F9', padding: '80px 0' }}>
+        <div className="container-max">
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <span className="section-label">What They Say</span>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, color: '#020817' }}>
+              Words From Our Students and Parents
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+            {testimonials.map((t, i) => (
+              <div key={i} className="card">
+                <div style={{ display: 'flex', gap: 3, marginBottom: 16 }}>
+                  {[1,2,3,4,5].map(j => <Star key={j} size={16} fill="#EAB308" color="#EAB308" />)}
+                </div>
+                <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, lineHeight: '26px', color: '#475569', marginBottom: 20, fontStyle: 'italic' }}>
+                  &quot;{t.quote}&quot;
+                </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: 14, color: '#020817' }}>
+                    {t.name}
+                  </span>
+                  <span className="badge badge-primary" style={{ fontSize: 11 }}>Verified Review</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA BANNER */}
+      <section style={{ background: '#2132B9', padding: '72px 0' }}>
+        <div className="container-max" style={{ textAlign: 'center' }}>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, color: '#fff', marginBottom: 16 }}>
+            Ready to Start Your Journey?
+          </h2>
+          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, color: 'rgba(255,255,255,0.8)', marginBottom: 36 }}>
+            Join hundreds of students achieving their best results at Righttway.
+          </p>
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link
+              href="/contact"
+              style={{
+                background: '#fff', color: '#2132B9', fontFamily: 'DM Sans, sans-serif',
+                fontWeight: 600, fontSize: 14, padding: '16px 28px', borderRadius: 9999,
+                height: 52, display: 'inline-flex', alignItems: 'center', textDecoration: 'none',
+                transition: 'all 0.2s',
+              }}
+            >
+              Enquire Now
+            </Link>
+            <a
+              href="tel:+919876543210"
+              className="btn-ghost-dark"
+            >
+              Call Us
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
