@@ -15,11 +15,19 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return (
@@ -51,7 +59,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex" style={{ gap: 32, alignItems: 'center' }}>
+        <div style={{ gap: 32, alignItems: 'center', display: isMobile ? 'none' : 'flex' }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -81,7 +89,7 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <div className="hidden md:flex">
+        <div style={{ display: isMobile ? 'none' : 'flex' }}>
           <Link href="/contact" className="btn-primary">
             Enquire Now
           </Link>
@@ -89,9 +97,8 @@ export default function Navbar() {
 
         {/* Hamburger */}
         <button
-          className="flex md:hidden"
+          style={{ display: isMobile ? 'flex' : 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
           onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
         >
           {menuOpen ? <X size={24} color="#020817" /> : <Menu size={24} color="#020817" />}
         </button>
