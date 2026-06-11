@@ -1,6 +1,50 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BookOpen, FlaskConical, BarChart3, Trophy, Heart, Video, Star, CheckCircle, Users, ClipboardList, MessageSquare, Zap, ArrowRight } from 'lucide-react';
+
+function useCountUp(target: number, duration: number, enabled: boolean): number {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    if (!enabled) return;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      setValue(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(animate);
+      else setValue(target);
+    };
+    const rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, [target, duration, enabled]);
+  return value;
+}
+
+function AnimatedStat({ value, label, index }: { value: string; label: string; index: number }) {
+  const [enabled, setEnabled] = useState(false);
+  const match = value.match(/^(\d+)(.*)$/);
+  const num = match ? parseInt(match[1]) : 0;
+  const suffix = match ? match[2] : value;
+  const count = useCountUp(num, 2000, enabled);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setEnabled(true), 800 + index * 150);
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  return (
+    <div
+      className={`stat-badge stat-badge-${index + 1}`}
+      style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', borderRadius: 12, padding: '10px 18px', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', gap: 8 }}
+    >
+      <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 22, color: '#EAB308' }}>{count}{suffix}</span>
+      <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 12, color: '#CBD5E1', fontWeight: 500 }}>{label}</span>
+    </div>
+  );
+}
 
 const stats = [
   { value: '15+', label: 'Years of Excellence' },
@@ -77,7 +121,7 @@ export default function HomePage() {
                 fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px',
                 color: '#E2E8F0', marginBottom: 36, maxWidth: 480,
               }}>
-                Expert coaching for 8th Grade to Engineering students across CBSE, ICSE, and State Board. Trusted by 5000+ families across Kunnamkulam and Thrissur.
+                Expert coaching for 8th, 9th, 10th grade for State Board, Trusted by 5000+ families across Kunnamkulam and Thrissur.
               </p>
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                 <Link href="/courses" className="btn-primary">
@@ -89,26 +133,40 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Stat Cards */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {stats.map((s, i) => (
-                <div
-                  key={i}
-                  className="card"
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 20, padding: '20px 28px',
-                    background: 'rgba(255,255,255,0.97)',
-                    transform: i === 1 ? 'translateX(24px)' : undefined,
-                  }}
-                >
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 40, color: '#EAB308', lineHeight: 1 }}>
-                    {s.value}
-                  </div>
-                  <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 16, color: '#475569', fontWeight: 500 }}>
-                    {s.label}
-                  </div>
+            {/* Right: Photo Collage */}
+            <div style={{ position: 'relative', paddingBottom: 20 }}>
+              {/* Decorative dots */}
+              <div className="dot-float dot-float-1" style={{ position: 'absolute', top: -28, left: 56, width: 44, height: 44, borderRadius: '50%', background: '#2132B9', zIndex: 1, pointerEvents: 'none' }} />
+              <div className="dot-float dot-float-2" style={{ position: 'absolute', top: -6, right: 96, width: 28, height: 28, borderRadius: 8, background: '#2132B9', zIndex: 1, pointerEvents: 'none' }} />
+              <div className="dot-float dot-float-3" style={{ position: 'absolute', bottom: 8, left: -8, width: 56, height: 56, borderRadius: '50%', background: '#EAB308', zIndex: 1, pointerEvents: 'none' }} />
+              <div className="dot-float dot-float-4" style={{ position: 'absolute', bottom: 80, right: -18, width: 30, height: 30, borderRadius: '50%', background: '#2132B9', zIndex: 1, pointerEvents: 'none' }} />
+
+              {/* 2×2 photo grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 14, position: 'relative', zIndex: 2 }}>
+                {/* Top-left: classroom */}
+                <div className="collage-tile collage-tile-1" style={{ borderRadius: 20, overflow: 'hidden', height: 230, background: 'linear-gradient(135deg, #1e3a5f 0%, #2d3a8c 100%)', position: 'relative' }}>
+                  <Image className="collage-media" src="/images/classroom-rightway.png" alt="Classroom at Righttway" fill style={{ objectFit: 'cover' }} />
                 </div>
-              ))}
+                {/* Top-right: building exterior (circular crop) */}
+                <div className="collage-tile collage-tile-2" style={{ borderRadius: '50%', overflow: 'hidden', width: 172, height: 172, background: 'linear-gradient(135deg, #334155 0%, #475569 100%)', margin: '0 auto', border: '5px solid rgba(255,255,255,0.12)', alignSelf: 'center', position: 'relative' }}>
+                  <Image className="collage-media" src="/images/building.jpg" alt="Righttway Centre Building" fill style={{ objectFit: 'cover' }} />
+                </div>
+                {/* Bottom-left: meeting room */}
+                <div className="collage-tile collage-tile-3" style={{ borderRadius: 20, overflow: 'hidden', height: 200, background: 'linear-gradient(135deg, #1e40af 0%, #2132B9 100%)', position: 'relative' }}>
+                  <Image className="collage-media" src="/images/meeting.jpg" alt="Parent meeting room" fill style={{ objectFit: 'cover' }} />
+                </div>
+                {/* Bottom-right: study group */}
+                <div className="collage-tile collage-tile-4" style={{ borderRadius: 20, overflow: 'hidden', height: 200, background: 'linear-gradient(135deg, #92400e 0%, #ca8a04 100%)', position: 'relative' }}>
+                  <Image className="collage-media" src="/images/study-group.jpg" alt="Students studying" fill style={{ objectFit: 'cover' }} />
+                </div>
+              </div>
+
+              {/* Stats as compact badges below collage */}
+              <div style={{ display: 'flex', gap: 10, marginTop: 18, flexWrap: 'wrap', position: 'relative', zIndex: 2 }}>
+                {stats.map((s, i) => (
+                  <AnimatedStat key={i} value={s.value} label={s.label} index={i} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

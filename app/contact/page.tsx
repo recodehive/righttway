@@ -183,7 +183,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: 14, color: '#020817', marginBottom: 2 }}>Phone</div>
-                      <a href="tel:+919876543210" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#2132B9', textDecoration: 'none' }}>+91 98765 43210</a>
+                      <a href="tel:+919876543210" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#2132B9', textDecoration: 'none' }}>+91 9846214009</a>
                     </div>
                   </div>
                   <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>

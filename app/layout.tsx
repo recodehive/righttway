@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 
 export const metadata: Metadata = {
   title: "Righttway Coaching Centre - Kunnamkulam's Trusted Coaching Centre Since 2010",
-  description: 'Expert coaching for 8th Grade to Engineering students across CBSE, ICSE, and State Board in Kunnamkulam, Kerala.',
+  description: 'Expert coaching for 8th, 9th, 10th grade for State Board in Kunnamkulam, Kerala.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

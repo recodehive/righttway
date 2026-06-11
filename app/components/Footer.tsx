@@ -52,7 +52,7 @@ export default function Footer() {
               </div>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <Phone size={16} color="#EAB308" />
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B' }}>+91 98765 43210</span>
+                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B' }}>+91 9846214009</span>
               </div>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <Mail size={16} color="#EAB308" />
