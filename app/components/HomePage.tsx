@@ -53,12 +53,10 @@ const stats = [
 ];
 
 const courses = [
-  { icon: BookOpen, title: '8th to 10th Standard', desc: 'CBSE, ICSE and State Board coaching with personal attention and weekly assessments.', badge: 'All Boards' },
-  { icon: FlaskConical, title: '11th and 12th Science', desc: 'Physics, Chemistry, Math and Biology with expert faculty and doubt-clearing sessions.', badge: 'PCM / PCB' },
-  { icon: BarChart3, title: '11th and 12th Commerce', desc: 'Accounts, Economics, Business Studies and B.Com coaching.', badge: 'Commerce' },
-  { icon: Trophy, title: 'JEE Preparation', desc: 'Engineering entrance exam preparation with structured problem-solving techniques.', badge: 'Engineering' },
-  { icon: Heart, title: 'NEET Preparation', desc: 'Medical entrance coaching with biology and chemistry focus.', badge: 'Medical' },
-  { icon: Video, title: 'Web Coaching', desc: 'Online concept video series by our faculty. Learn anytime, anywhere.', badge: 'Online' },
+  { icon: BookOpen, title: '8th Standard', desc: 'CBSE, ICSE and State Board coaching with personal attention and weekly assessments.', badge: 'All Boards' },
+  { icon: FlaskConical, title: '9th Science', desc: 'Physics, Chemistry, Math and Biology with expert faculty and doubt-clearing sessions.', badge: 'PCM / PCB' },
+  { icon: BarChart3, title: '10th Science', desc: 'Accounts, Economics, Business Studies and B.Com coaching.', badge: 'Commerce' },
+{ icon: Video, title: 'Web Coaching', desc: 'Online concept video series by our faculty. Learn anytime, anywhere.', badge: 'Online' },
 ];
 
 const strengths = [
@@ -145,19 +143,19 @@ export default function HomePage() {
               <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 14, position: 'relative', zIndex: 2 }}>
                 {/* Top-left: classroom */}
                 <div className="collage-tile collage-tile-1" style={{ borderRadius: 20, overflow: 'hidden', height: 230, background: 'linear-gradient(135deg, #1e3a5f 0%, #2d3a8c 100%)', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/classroom-rightway.png" alt="Classroom at Righttway" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/logo.jpg" alt="Classroom at Righttway" fill style={{ objectFit: 'cover' }} />
                 </div>
                 {/* Top-right: building exterior (circular crop) */}
                 <div className="collage-tile collage-tile-2" style={{ borderRadius: '50%', overflow: 'hidden', width: 172, height: 172, background: 'linear-gradient(135deg, #334155 0%, #475569 100%)', margin: '0 auto', border: '5px solid rgba(255,255,255,0.12)', alignSelf: 'center', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/building.jpg" alt="Righttway Centre Building" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/rightt2.jpg" alt="Righttway Centre Building" fill style={{ objectFit: 'cover' }} />
                 </div>
                 {/* Bottom-left: meeting room */}
                 <div className="collage-tile collage-tile-3" style={{ borderRadius: 20, overflow: 'hidden', height: 200, background: 'linear-gradient(135deg, #1e40af 0%, #2132B9 100%)', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/meeting.jpg" alt="Parent meeting room" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/exam10.jpg" alt="Parent meeting room" fill style={{ objectFit: 'cover' }} />
                 </div>
                 {/* Bottom-right: study group */}
                 <div className="collage-tile collage-tile-4" style={{ borderRadius: 20, overflow: 'hidden', height: 200, background: 'linear-gradient(135deg, #92400e 0%, #ca8a04 100%)', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/study-group.jpg" alt="Students studying" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/trend.jpg" alt="Students studying" fill style={{ objectFit: 'cover' }} />
                 </div>
               </div>
 
@@ -179,7 +177,7 @@ export default function HomePage() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             gap: 0, flexWrap: 'wrap',
           }}>
-            {['CBSE Affiliated', 'ICSE Affiliated', 'State Board', 'Since 2010'].map((item, i) => (
+            {['8th', '9th', '10th','State Board', 'Since 2010'].map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '0 28px' }}>
                   <CheckCircle size={16} color="#2132B9" />
@@ -221,13 +219,12 @@ export default function HomePage() {
                   width: 120, height: 120, borderRadius: '50%',
                   border: '4px solid #EAB308',
                   background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
-                  margin: '0 auto 20px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 40,
+                  margin: '0 auto 20px', position: 'relative', overflow: 'hidden',
                 }}>
-                  👤
+                  <Image src="/images/Vasan CG.png" alt="Vasan CG" fill style={{ objectFit: 'cover' }} />
                 </div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 20, color: '#020817', marginBottom: 6 }}>
-                  The Founder
+                 Vasan CG - The Founder
                 </div>
                 <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 16 }}>
                   Founder and Director, Righttway

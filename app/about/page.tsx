@@ -56,7 +56,7 @@ export default function AboutPage() {
                   👤
                 </div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 22, color: '#020817', marginBottom: 6 }}>
-                  The Founder
+                 Vasan CG - The Founder
                 </div>
                 <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 16 }}>
                   Founder and Director, Righttway

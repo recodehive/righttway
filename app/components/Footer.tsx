@@ -68,7 +68,7 @@ export default function Footer() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <a
-                href="#"
+                href="https://www.facebook.com/righttwaykkm/"
                 style={{ display: 'flex', gap: 10, alignItems: 'center', textDecoration: 'none', fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.target as HTMLElement).style.color = '#EAB308'}
                 onMouseLeave={e => (e.target as HTMLElement).style.color = '#64748B'}
@@ -77,7 +77,7 @@ export default function Footer() {
                 Facebook Page
               </a>
               <a
-                href="#"
+                href="https://share.google/bgY0zrdMzEGo4O6Fn"
                 style={{ display: 'flex', gap: 10, alignItems: 'center', textDecoration: 'none', fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', transition: 'color 0.2s' }}
               >
                 <Map size={16} color="#EAB308" />
@@ -89,7 +89,7 @@ export default function Footer() {
 
         <div style={{ borderTop: '1px solid #161C2D', padding: '20px 0', textAlign: 'center' }}>
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#475569' }}>
-            2024 Righttway Coaching Centre. All rights reserved.
+            2026 Righttway Coaching Centre. All rights reserved.
           </p>
         </div>
       </div>
