@@ -47,7 +47,7 @@ export default function Footer() {
               <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                 <MapPin size={16} color="#EAB308" style={{ marginTop: 2, flexShrink: 0 }} />
                 <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', lineHeight: '20px' }}>
-                  Near Town Hall, Kunnamkulam, Thrissur, Kerala - 680503
+                  2nd floor , central plaza, SH69, Kunnamkulam, Kerala 680503
                 </span>
               </div>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
@@ -56,7 +56,7 @@ export default function Footer() {
               </div>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <Mail size={16} color="#EAB308" />
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B' }}>info@righttway.com</span>
+                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B' }}>righttwaykkm@gmail.com</span>
               </div>
             </div>
           </div>
