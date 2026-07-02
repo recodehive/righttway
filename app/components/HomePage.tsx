@@ -67,9 +67,9 @@ const strengths = [
 ];
 
 const results = [
-  { name: 'Arjun Menon', exam: 'JEE Advanced 2024', score: 'AIR 847', badge: 'Top Rank' },
-  { name: 'Devika Nair', exam: 'NEET 2024', score: '672/720', badge: 'Top Rank' },
-  { name: 'Rahul Krishnan', exam: 'KEAM 2024', score: '99.2 %ile', badge: 'Top Rank' },
+  { name: 'Arjun Menon', exam: 'JEE Advanced 2024', score: 'AIR 847', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/dffac472-d1f0-4fdb-a02d-84d0952971ef' },
+  { name: 'Devika Nair', exam: 'NEET 2024', score: '672/720', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/aac8d3ef-cf57-470f-b55a-75d83d6bf2d9' },
+  { name: 'Rahul Krishnan', exam: 'KEAM 2024', score: '99.2 %ile', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/7d0c3c32-c2d8-40aa-93de-44b8628ab2ad' },
 ];
 
 const testimonials = [
@@ -337,8 +337,9 @@ export default function HomePage() {
                   width: 72, height: 72, borderRadius: '50%',
                   background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
                   margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28,
+                  overflow: 'hidden', position: 'relative',
                 }}>
-                  🎓
+                  <Image src={r.image} alt={r.name} fill style={{ objectFit: 'cover' }} />
                 </div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 4 }}>
                   {r.name}
