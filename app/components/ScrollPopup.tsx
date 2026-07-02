@@ -7,14 +7,19 @@ export default function ScrollPopup() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (dismissed) return;
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      if (scrollPercent >= 60) {
-        setShow(true);
-      }
+      if (dismissed || ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        if (scrollPercent >= 60) {
+          setShow(true);
+        }
+        ticking = false;
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
