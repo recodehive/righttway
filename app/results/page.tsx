@@ -14,10 +14,10 @@ const resultsByYear: Record<string, { name: string; exam?: string; score?: strin
     { name: 'Jeevana' },
     { name: 'Ananya', image: 'https://github.com/user-attachments/assets/aac8d3ef-cf57-470f-b55a-75d83d6bf2d9' },
     { name: 'Adhithyan' },
-    { name: 'Angel rose' },
+    { name: 'Angel Rose' },
     { name: 'Adhidev' },
     { name: 'Aryanandha' },
-    { name: 'Diya deepak' },
+    { name: 'Diya Deepak' },
     { name: 'Vygha' },
     { name: 'Anith Subin' },
     { name: 'Sreya' },
@@ -111,7 +111,7 @@ export default function ResultsPage() {
                     overflow: 'hidden', position: 'relative', marginBottom: 12,
                   }}>
                     {r.image ? (
-                      <Image src={r.image} alt={r.name} fill style={{ objectFit: 'cover' }} />
+                      <Image src={r.image} alt={`Student ${r.name}`} fill style={{ objectFit: 'cover' }} />
                     ) : (
                       <span>📷</span>
                     )}
