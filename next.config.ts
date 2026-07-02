@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
         hostname: 'github.com',
         pathname: '/user-attachments/assets/**',
       },
+      {
+        protocol: 'https',
+        hostname: '*.githubusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.s3.amazonaws.com',
+      },
     ],
   },
 };
