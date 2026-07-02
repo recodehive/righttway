@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, FlaskConical, BarChart3, Trophy, Heart, Video, Star, CheckCircle, Users, ClipboardList, MessageSquare, Zap, ArrowRight } from 'lucide-react';
+import ScrollPopup from './ScrollPopup';
 
 function useCountUp(target: number, duration: number, enabled: boolean): number {
   const [value, setValue] = useState(0);
@@ -81,6 +82,7 @@ const testimonials = [
 export default function HomePage() {
   return (
     <>
+      <ScrollPopup />
       {/* HERO */}
       <section
         style={{
