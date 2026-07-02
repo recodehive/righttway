@@ -39,7 +39,7 @@ export default function ScrollPopup() {
       >
         <button
           onClick={() => setDismissed(true)}
-          className="absolute top-2 right-2 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold shadow-md transition-colors"
+          className="absolute top-2 right-2 z-10 bg-white hover:bg-blue-600 hover:text-white text-gray-800 rounded-full w-14 h-14 flex items-center justify-center text-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-200"
           aria-label="Close popup"
         >
           ✕
