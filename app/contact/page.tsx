@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, ChevronDown, ChevronUp, Send } from 'lucide-react'
 const faqs = [
   {
     q: 'What boards do you coach for?',
-    a: 'We coach for CBSE, ICSE, and Kerala State Board from 8th to 12th Standard. We also offer specialised preparation for JEE, NEET, and KEAM.',
+    a: 'We coach for Kerala State Board from 8th to 12th Standard. We also offer specialised preparation for JEE, NEET, and KEAM.',
   },
   {
     q: 'What are the batch timings?',

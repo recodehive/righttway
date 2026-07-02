@@ -38,7 +38,7 @@ export default function AboutPage() {
                 Righttway was established in 2010 with a clear mission: to create a coaching centre in Kunnamkulam that would stand apart through personal attention, rigorous academic standards, and genuine care for every student&apos;s future.
               </p>
               <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569', marginBottom: 20 }}>
-                Over 15 years, we have shaped thousands of students across CBSE, ICSE, and State Board syllabuses, and built a track record of strong results in JEE, NEET, and KEAM examinations.
+                Over 15 years, we have shaped thousands of students across State Board syllabuses, and built a track record of strong results in JEE, NEET, and KEAM examinations.
               </p>
               <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569' }}>
                 Our philosophy goes beyond academics. We prepare students to excel in their chosen fields and become responsible, humble human beings ready for the challenges ahead.

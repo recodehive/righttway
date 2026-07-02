@@ -54,7 +54,7 @@ const stats = [
 ];
 
 const courses = [
-  { icon: BookOpen, title: '8th Standard', desc: 'CBSE, ICSE and State Board coaching with personal attention and weekly assessments.', badge: 'All Boards' },
+  { icon: BookOpen, title: '8th Standard', desc: 'State Board coaching with personal attention and weekly assessments.', badge: 'All Boards' },
   { icon: FlaskConical, title: '9th Science', desc: 'Physics, Chemistry, Math and Biology with expert faculty and doubt-clearing sessions.', badge: 'PCM / PCB' },
   { icon: BarChart3, title: '10th Science', desc: 'Accounts, Economics, Business Studies and B.Com coaching.', badge: 'Commerce' },
 { icon: Video, title: 'Web Coaching', desc: 'Online concept video series by our faculty. Learn anytime, anywhere.', badge: 'Online' },
