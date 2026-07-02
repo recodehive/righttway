@@ -7,51 +7,56 @@ export default function ScrollPopup() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (dismissed || ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        if (scrollPercent >= 60) {
-          setShow(true);
-        }
-        ticking = false;
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (dismissed) return;
+    const timer = setTimeout(() => setShow(true), 3000);
+    return () => clearTimeout(timer);
   }, [dismissed]);
 
   if (!show || dismissed) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
       onClick={() => setDismissed(true)}
     >
       <div
-        className="relative mx-4 w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300"
+        className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7)] border border-white/10"
+        style={{ animation: 'popupIn 0.35s cubic-bezier(0.34,1.56,0.64,1) both' }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={() => setDismissed(true)}
-          className="absolute top-2 right-2 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold shadow-md transition-colors"
-          aria-label="Close popup"
-        >
-          ✕
-        </button>
+        {/* Header bar */}
+        <div className="flex items-center justify-between px-4 py-3 bg-[#1a1a2e]">
+          <span className="text-white font-bold text-sm tracking-wide uppercase opacity-80">
+            🏆 Student Achievements
+          </span>
+          <button
+            onClick={() => setDismissed(true)}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-red-500 text-white text-xl font-bold transition-all duration-200 hover:scale-110 hover:shadow-lg"
+            aria-label="Close popup"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Image */}
         <Image
           src="https://github.com/user-attachments/assets/4218ab32-ed17-43d2-accd-777d6471b537"
           alt="Rightt Way - Student Achievements"
           width={600}
           height={700}
-          className="w-full h-auto max-h-[70vh] object-contain"
+          className="w-full h-auto max-h-[75vh] object-contain block"
           unoptimized
         />
+
+        {/* Footer */}
+        <div className="bg-[#1a1a2e] px-4 py-3 text-center">
+          <button
+            onClick={() => setDismissed(true)}
+            className="w-full py-2 rounded-lg bg-white/10 hover:bg-red-500 text-white text-sm font-semibold tracking-wide transition-all duration-200"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

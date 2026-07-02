@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes popupIn {
+  from { opacity: 0; transform: scale(0.85) translateY(24px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);    }
+}
+
 :root {
   --brand-navy: #020817;
   --royal-blue: #2132B9;
