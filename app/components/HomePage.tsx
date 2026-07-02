@@ -68,9 +68,9 @@ const strengths = [
 ];
 
 const results = [
-  { name: 'Arjun Menon', exam: 'JEE Advanced 2024', score: 'AIR 847', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/dffac472-d1f0-4fdb-a02d-84d0952971ef' },
-  { name: 'Devika Nair', exam: 'NEET 2024', score: '672/720', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/aac8d3ef-cf57-470f-b55a-75d83d6bf2d9' },
-  { name: 'Rahul Krishnan', exam: 'KEAM 2024', score: '99.2 %ile', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/7d0c3c32-c2d8-40aa-93de-44b8628ab2ad' },
+  { name: 'Sravan', exam: 'NCERT', score: '95.2 %', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/dffac472-d1f0-4fdb-a02d-84d0952971ef' },
+  { name: 'Ananya', exam: 'NCERT', score: '95.2 %', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/aac8d3ef-cf57-470f-b55a-75d83d6bf2d9' },
+  { name: 'Dilna', exam: 'NCERT', score: '95.2 %', badge: 'Top Rank', image: 'https://github.com/user-attachments/assets/7d0c3c32-c2d8-40aa-93de-44b8628ab2ad' },
 ];
 
 const testimonials = [
