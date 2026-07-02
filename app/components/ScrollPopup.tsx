@@ -34,12 +34,12 @@ export default function ScrollPopup() {
       onClick={() => setDismissed(true)}
     >
       <div
-        className="relative mx-4 max-w-lg w-full rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300"
+        className="relative mx-4 w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={() => setDismissed(true)}
-          className="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold shadow-md transition-colors"
+          className="absolute top-2 right-2 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center text-lg font-bold shadow-md transition-colors"
           aria-label="Close popup"
         >
           ✕
@@ -49,7 +49,7 @@ export default function ScrollPopup() {
           alt="Rightt Way - Student Achievements"
           width={600}
           height={700}
-          className="w-full h-auto"
+          className="w-full h-auto max-h-[70vh] object-contain"
           unoptimized
         />
       </div>
