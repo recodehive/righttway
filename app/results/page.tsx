@@ -1,16 +1,26 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
 import { Star } from 'lucide-react';
 
-const resultsByYear: Record<string, { name: string; exam: string; score: string; badge: string }[]> = {
+const resultsByYear: Record<string, { name: string; exam?: string; score?: string; badge?: string; image?: string }[]> = {
   '2024': [
-    { name: 'Arjun Menon', exam: 'JEE Advanced 2024', score: 'AIR 847', badge: 'Top Rank' },
-    { name: 'Devika Nair', exam: 'NEET 2024', score: '672/720', badge: 'Top Rank' },
-    { name: 'Rahul Krishnan', exam: 'KEAM 2024', score: '99.2 %ile', badge: 'Top Rank' },
-    { name: 'Sneha Pillai', exam: 'Class 10 CBSE', score: '97.4%', badge: 'District Topper' },
-    { name: 'Vishnu Raj', exam: 'JEE Main 2024', score: '98.6 %ile', badge: 'Top 100' },
-    { name: 'Ananya Mohan', exam: 'NEET 2024', score: '655/720', badge: 'Top Rank' },
+    { name: 'Saran', image: 'https://github.com/user-attachments/assets/2b53e462-65f0-4051-860b-5b3e2b330d9a' },
+    { name: 'Sravan', image: 'https://github.com/user-attachments/assets/dffac472-d1f0-4fdb-a02d-84d0952971ef' },
+    { name: 'Shvetank' },
+    { name: 'Varun' },
+    { name: 'Dilna', image: 'https://github.com/user-attachments/assets/7d0c3c32-c2d8-40aa-93de-44b8628ab2ad' },
+    { name: 'Jeevana' },
+    { name: 'Ananya', image: 'https://github.com/user-attachments/assets/aac8d3ef-cf57-470f-b55a-75d83d6bf2d9' },
+    { name: 'Adhithyan' },
+    { name: 'Angel rose' },
+    { name: 'Adhidev' },
+    { name: 'Aryanandha' },
+    { name: 'Diya deepak' },
+    { name: 'Vygha' },
+    { name: 'Anith Subin' },
+    { name: 'Sreya' },
   ],
   '2023': [
     { name: 'Kiran Thomas', exam: 'JEE Advanced 2023', score: 'AIR 1240', badge: 'Top Rank' },
@@ -33,6 +43,7 @@ const resultsByYear: Record<string, { name: string; exam: string; score: string;
 export default function ResultsPage() {
   const [activeYear, setActiveYear] = useState('2024');
   const results = resultsByYear[activeYear];
+  const is2024 = activeYear === '2024';
 
   return (
     <>
@@ -74,32 +85,58 @@ export default function ResultsPage() {
             ))}
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24 }}>
-            {results.map((r, i) => (
-              <div key={i} className="card" style={{ textAlign: 'center', padding: '32px 24px' }}>
-                <div style={{
-                  width: 80, height: 80, borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
-                  margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32,
-                }}>
-                  🎓
+          {is2024 ? (
+            // 2024: Grid of student photos with names
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: 20 }}>
+              {results.map((r, i) => (
+                <div key={i} style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: '100%', aspectRatio: '1', borderRadius: '12px',
+                    background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32,
+                    overflow: 'hidden', position: 'relative', marginBottom: 12,
+                  }}>
+                    {r.image ? (
+                      <Image src={r.image} alt={r.name} fill style={{ objectFit: 'cover' }} />
+                    ) : (
+                      <span>📷</span>
+                    )}
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: 14, color: '#020817' }}>
+                    {r.name}
+                  </div>
                 </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 4 }}>
-                  {r.name}
+              ))}
+            </div>
+          ) : (
+            // 2023 and 2022: Traditional card layout
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24 }}>
+              {results.map((r, i) => (
+                <div key={i} className="card" style={{ textAlign: 'center', padding: '32px 24px' }}>
+                  <div style={{
+                    width: 80, height: 80, borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                    margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32,
+                  }}>
+                    🎓
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 4 }}>
+                    {r.name}
+                  </div>
+                  <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 12 }}>
+                    {r.exam}
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 28, color: '#EAB308', marginBottom: 16 }}>
+                    {r.score}
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: 3, marginBottom: 12 }}>
+                    {[1,2,3,4,5].map(j => <Star key={j} size={14} fill="#EAB308" color="#EAB308" />)}
+                  </div>
+                  <span className="badge badge-warning">{r.badge}</span>
                 </div>
-                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 12 }}>
-                  {r.exam}
-                </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 28, color: '#EAB308', marginBottom: 16 }}>
-                  {r.score}
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: 3, marginBottom: 12 }}>
-                  {[1,2,3,4,5].map(j => <Star key={j} size={14} fill="#EAB308" color="#EAB308" />)}
-                </div>
-                <span className="badge badge-warning">{r.badge}</span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
