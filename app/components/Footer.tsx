@@ -56,7 +56,7 @@ export default function Footer() {
               </div>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <Mail size={16} color="#EAB308" />
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B' }}>righttwaykkm@gmail.com</span>
+                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B' }}>rightwaytuition@gmail.com</span>
               </div>
             </div>
           </div>
