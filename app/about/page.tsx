@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Star, Award, Target, BookOpen } from 'lucide-react';
 
 export default function AboutPage() {
@@ -38,7 +39,7 @@ export default function AboutPage() {
                 Righttway was established in 2010 with a clear mission: to create a coaching centre in Kunnamkulam that would stand apart through personal attention, rigorous academic standards, and genuine care for every student&apos;s future.
               </p>
               <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569', marginBottom: 20 }}>
-                Over 15 years, we have shaped thousands of students across State Board syllabuses, and built a track record of strong results in JEE, NEET, and KEAM examinations.
+                Over 10+ years, we have shaped thousands of students across State Board syllabuses, and built a track record of strong results.
               </p>
               <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569' }}>
                 Our philosophy goes beyond academics. We prepare students to excel in their chosen fields and become responsible, humble human beings ready for the challenges ahead.
@@ -50,10 +51,9 @@ export default function AboutPage() {
                   width: 140, height: 140, borderRadius: '50%',
                   border: '4px solid #EAB308',
                   background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
-                  margin: '0 auto 20px',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 50,
+                  margin: '0 auto 20px', position: 'relative', overflow: 'hidden',
                 }}>
-                  👤
+                  <Image src="/images/Vasan CG.png" alt="Vasan CG" fill style={{ objectFit: 'cover' }} />
                 </div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 22, color: '#020817', marginBottom: 6 }}>
                  Vasan CG - The Founder

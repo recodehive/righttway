@@ -6,11 +6,11 @@ import { MapPin, Phone, Mail, ChevronDown, ChevronUp, Send } from 'lucide-react'
 const faqs = [
   {
     q: 'What boards do you coach for?',
-    a: 'We coach for Kerala State Board from 8th to 12th Standard. We also offer specialised preparation for JEE, NEET, and KEAM.',
+    a: 'We coach for Kerala State Board from 8th to 10th standard.',
   },
   {
     q: 'What are the batch timings?',
-    a: 'Timings vary by course. Foundation batches run evenings from 4:00 PM to 6:00 PM, while competitive exam batches also have early morning sessions from 6:00 AM to 8:00 AM. Contact us for a full schedule.',
+    a: 'Timings vary by course. Foundation batches run from 7:30 to 9:00am daily on Holidays 9:30am to 1:00pm. Contact us for a full schedule.',
   },
   {
     q: 'Do you offer demo classes?',
@@ -18,7 +18,11 @@ const faqs = [
   },
   {
     q: 'Is online coaching available?',
-    a: 'Yes, we have our Web Coaching series with recorded video sessions. For live online sessions, please enquire directly with us.',
+    a: 'No, Online coaching is not available. Please enquire directly with us.',
+  },
+  {
+    q: 'What will be the total cost of study?',
+    a: 'Please contact us directly for detailed information on course fees and payment options. Contact number 7736859773',
   },
 ];
 
@@ -195,7 +199,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: 14, color: '#020817', marginBottom: 2 }}>Email</div>
-                      <a href="mailto:info@righttway.com" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#2132B9', textDecoration: 'none' }}>info@righttway.com</a>
+                      <a href="mailto:rightwaytuition@gmail.com" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#2132B9', textDecoration: 'none' }}>rightwaytuition@gmail.com</a>
                     </div>
                   </div>
                 </div>

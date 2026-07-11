@@ -1,20 +1,33 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
-import { Play, BookOpen } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Play, BookOpen, X } from 'lucide-react';
 
 const topics = [
-  { subject: 'Mathematics', title: 'Circles and Tangents', grade: '10th', icon: '⭕' },
-  { subject: 'Mathematics', title: 'Complex Numbers', grade: '11th / 12th', icon: '🔢' },
-  { subject: 'Mathematics', title: 'Coordinate Geometry', grade: '10th / 11th', icon: '📐' },
-  { subject: 'Physics', title: 'Laws of Motion', grade: '11th', icon: '⚡' },
-  { subject: 'Chemistry', title: 'Chemical Bonding', grade: '11th', icon: '🧪' },
-  { subject: 'Biology', title: 'Cell Division', grade: '11th / 12th', icon: '🔬' },
+  { subject: 'Mathematics', title: 'Circles and Tangents', grade: '10th', icon: '⭕', videoId: 'Uv3SKBeuf3o' },
+  { subject: 'Mathematics', title: 'Complex Numbers', grade: '11th / 12th', icon: '🔢', videoId: '2PQRU3K9h1s' },
+  { subject: 'Mathematics', title: 'Coordinate Geometry', grade: '10th / 11th', icon: '📐', videoId: 'OfErzIIqyQU' },
+  { subject: 'Physics', title: 'Laws of Motion', grade: '11th', icon: '⚡', videoId: 'tcKQLAY5S8c' },
 ];
 
 export default function WebCoachingPage() {
   const [form, setForm] = useState({ name: '', topic: '', grade: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<(typeof topics)[number] | null>(null);
+
+  // Close modal on Escape and lock body scroll while open
+  useEffect(() => {
+    if (!activeVideo) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActiveVideo(null);
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [activeVideo]);
 
   const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -53,21 +66,33 @@ export default function WebCoachingPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
             {topics.map((t, i) => (
               <div key={i} className="card" style={{ padding: '28px' }}>
-                {/* YouTube placeholder */}
-                <div style={{
-                  background: 'linear-gradient(135deg, #020817 0%, #1e293b 100%)',
-                  borderRadius: 12, aspectRatio: '16/9', display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', marginBottom: 20, position: 'relative', overflow: 'hidden',
-                }}>
-                  <div style={{ fontSize: 36, marginRight: 12 }}>{t.icon}</div>
+                {/* YouTube thumbnail — click to play in popup */}
+                <button
+                  type="button"
+                  onClick={() => setActiveVideo(t)}
+                  aria-label={`Play video: ${t.title}`}
+                  style={{
+                    background: 'linear-gradient(135deg, #020817 0%, #1e293b 100%)',
+                    border: 'none', padding: 0, width: '100%',
+                    borderRadius: 12, aspectRatio: '16/9', display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', marginBottom: 20, position: 'relative', overflow: 'hidden',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://img.youtube.com/vi/${t.videoId}/hqdefault.jpg`}
+                    alt={t.title}
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.7 }}
+                  />
                   <div style={{
-                    width: 48, height: 48, background: 'rgba(234,179,8,0.9)', borderRadius: '50%',
+                    width: 56, height: 56, background: 'rgba(234,179,8,0.95)', borderRadius: '50%',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer', transition: 'transform 0.2s',
+                    position: 'relative', boxShadow: '0 4px 16px rgba(0,0,0,0.35)',
                   }}>
-                    <Play size={20} fill="#020817" color="#020817" />
+                    <Play size={24} fill="#020817" color="#020817" style={{ marginLeft: 3 }} />
                   </div>
-                </div>
+                </button>
                 <span className="badge badge-default" style={{ marginBottom: 10 }}>{t.subject}</span>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 6 }}>
                   {t.title}
@@ -78,6 +103,49 @@ export default function WebCoachingPage() {
           </div>
         </div>
       </section>
+
+      {/* Video popup modal */}
+      {activeVideo && (
+        <div
+          onClick={() => setActiveVideo(null)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(2,8,23,0.85)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20,
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{ position: 'relative', width: '100%', maxWidth: 900 }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+              <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 20, color: '#fff' }}>
+                {activeVideo.subject} · {activeVideo.title}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setActiveVideo(null)}
+                aria-label="Close video"
+                style={{
+                  width: 40, height: 40, borderRadius: '50%', border: 'none', cursor: 'pointer',
+                  background: 'rgba(255,255,255,0.12)', color: '#fff',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}
+              >
+                <X size={22} />
+              </button>
+            </div>
+            <div style={{ aspectRatio: '16/9', borderRadius: 12, overflow: 'hidden', background: '#000' }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${activeVideo.videoId}?autoplay=1&rel=0`}
+                title={activeVideo.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ width: '100%', height: '100%', border: 'none' }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Request form */}
       <section style={{ background: '#fff', padding: '80px 0' }}>
