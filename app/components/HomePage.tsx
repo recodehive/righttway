@@ -145,19 +145,19 @@ export default function HomePage() {
               <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 14, position: 'relative', zIndex: 2 }}>
                 {/* Top-left: classroom */}
                 <div className="collage-tile collage-tile-1" style={{ borderRadius: 20, overflow: 'hidden', height: 230, background: 'linear-gradient(135deg, #1e3a5f 0%, #2d3a8c 100%)', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/logo.jpg" alt="Classroom at Righttway" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/logo.jpg" alt="Classroom at Righttway" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 60vw, 340px" />
                 </div>
                 {/* Top-right: building exterior (circular crop) */}
                 <div className="collage-tile collage-tile-2" style={{ borderRadius: '50%', overflow: 'hidden', width: 172, height: 172, background: 'linear-gradient(135deg, #334155 0%, #475569 100%)', margin: '0 auto', border: '5px solid rgba(255,255,255,0.12)', alignSelf: 'center', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/rightt2.jpg" alt="Righttway Centre Building" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/rightt2.jpg" alt="Righttway Centre Building" fill style={{ objectFit: 'cover' }} sizes="172px" />
                 </div>
                 {/* Bottom-left: meeting room */}
                 <div className="collage-tile collage-tile-3" style={{ borderRadius: 20, overflow: 'hidden', height: 200, background: 'linear-gradient(135deg, #1e40af 0%, #2132B9 100%)', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/exam10.jpg" alt="Parent meeting room" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/exam10.jpg" alt="Parent meeting room" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 60vw, 340px" />
                 </div>
                 {/* Bottom-right: study group */}
                 <div className="collage-tile collage-tile-4" style={{ borderRadius: 20, overflow: 'hidden', height: 200, background: 'linear-gradient(135deg, #92400e 0%, #ca8a04 100%)', position: 'relative' }}>
-                  <Image className="collage-media" src="/images/trend.jpg" alt="Students studying" fill style={{ objectFit: 'cover' }} />
+                  <Image className="collage-media" src="/images/trend.jpg" alt="Students studying" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 40vw, 220px" />
                 </div>
               </div>
 
@@ -223,7 +223,7 @@ export default function HomePage() {
                   background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
                   margin: '0 auto 20px', position: 'relative', overflow: 'hidden',
                 }}>
-                  <Image src="/images/Vasan CG.png" alt="Vasan CG" fill style={{ objectFit: 'cover' }} />
+                  <Image src="/images/Vasan CG.png" alt="Vasan CG" fill style={{ objectFit: 'cover' }} sizes="140px" />
                 </div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 20, color: '#020817', marginBottom: 6 }}>
                  Vasan CG - The Founder
@@ -341,7 +341,7 @@ export default function HomePage() {
                   margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28,
                   overflow: 'hidden', position: 'relative',
                 }}>
-                  <Image src={r.image} alt={r.name} fill style={{ objectFit: 'cover' }} />
+                  <Image src={r.image} alt={r.name} fill style={{ objectFit: 'cover' }} sizes="72px" />
                 </div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 4 }}>
                   {r.name}

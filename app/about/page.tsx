@@ -4,10 +4,18 @@ import { Star, Award, Target, BookOpen } from 'lucide-react';
 
 export default function AboutPage() {
   const faculty = [
-    { name: 'Sr. Math Faculty', subject: 'Mathematics', exp: '12+ Years' },
-    { name: 'Sr. Science Faculty', subject: 'Physics & Chemistry', exp: '10+ Years' },
-    { name: 'Sr. Biology Faculty', subject: 'Biology / NEET', exp: '8+ Years' },
-    { name: 'Sr. Commerce Faculty', subject: 'Accounts & Economics', exp: '9+ Years' },
+    { name: 'Mary Elsy Varghese', subject: 'Physics', exp: '11+ Years', img: '/images/faculty/mary-elsy-varghese-physics.jpeg' },
+    { name: 'Sanjana', subject: 'Chemistry', exp: '6+ Years', img: '/images/faculty/sanjana-chemistry.jpeg' },
+    { name: 'Rannya P S', subject: 'Geography', exp: '8+ Years', img: '/images/faculty/rannya-ps-geography.jpeg' },
+    { name: 'Honey Jaison', subject: 'Chemistry', exp: '9+ Years', img: '/images/faculty/honey-jaison-chemistry.jpeg' },
+    { name: 'Jithu V A', subject: 'Maths', exp: '7+ Years', img: '/images/faculty/jithu-va-maths.jpeg' },
+    { name: 'Praveesh K K', subject: 'Maths', exp: '13+ Years', img: '/images/faculty/praveesh-kk-maths.jpeg' },
+    { name: 'Riya A G', subject: 'Social Science', exp: '5+ Years', img: '/images/faculty/riya-ag-social.jpeg' },
+    { name: 'Rathnam', subject: 'History', exp: '15+ Years', img: '/images/faculty/rathnam-history.jpeg' },
+    { name: 'Remya Biju', subject: 'Maths', exp: '10+ Years', img: '/images/faculty/remya-biju-maths.jpeg' },
+    { name: 'Sheena Vasan', subject: 'Biology', exp: '12+ Years', img: '/images/faculty/sheena-vasan-biology.jpeg' },
+    { name: 'Vysali', subject: 'Hindi', exp: '4+ Years', img: '/images/faculty/vysali-hindi.jpeg' },
+    { name: 'Anjali', subject: 'English', exp: '9+ Years', img: '/images/faculty/anjali-english.jpeg' },
   ];
 
   return (
@@ -53,7 +61,7 @@ export default function AboutPage() {
                   background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
                   margin: '0 auto 20px', position: 'relative', overflow: 'hidden',
                 }}>
-                  <Image src="/images/Vasan CG.png" alt="Vasan CG" fill style={{ objectFit: 'cover' }} />
+                  <Image src="/images/Vasan CG.png" alt="Vasan CG" fill style={{ objectFit: 'cover' }} sizes="140px" />
                 </div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 22, color: '#020817', marginBottom: 6 }}>
                  Vasan CG - The Founder
@@ -102,23 +110,25 @@ export default function AboutPage() {
               Meet Our Expert Faculty
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24 }}>
-            {faculty.map((f, i) => (
-              <div key={i} className="card" style={{ textAlign: 'center', padding: '32px 24px' }}>
-                <div style={{
-                  width: 80, height: 80, borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
-                  margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32,
-                }}>
-                  👤
+          <div className="faculty-marquee">
+            <div className="faculty-track">
+              {[...faculty, ...faculty].map((f, i) => (
+                <div key={i} className="card" style={{ textAlign: 'center', padding: '32px 24px', width: 220, flex: '0 0 auto' }}>
+                  <div style={{
+                    width: 80, height: 80, borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                    margin: '0 auto 16px', position: 'relative', overflow: 'hidden',
+                  }}>
+                    <Image src={f.img} alt={f.name} fill style={{ objectFit: 'cover' }} sizes="80px" />
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 16, color: '#020817', marginBottom: 6 }}>
+                    {f.name}
+                  </div>
+                  <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 12 }}>{f.subject}</div>
+                  <span className="badge badge-default">{f.exp}</span>
                 </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 16, color: '#020817', marginBottom: 6 }}>
-                  {f.name}
-                </div>
-                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 12 }}>{f.subject}</div>
-                <span className="badge badge-default">{f.exp}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
