@@ -7,10 +7,16 @@ export default function ScrollPopup() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    if (dismissed) return;
-    const timer = setTimeout(() => setShow(true), 3000);
-    return () => clearTimeout(timer);
-  }, [dismissed]);
+    if (dismissed || show) return;
+    const handleScroll = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      if (scrolled >= 0.7) setShow(true);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [dismissed, show]);
 
   if (!show || dismissed) return null;
 
