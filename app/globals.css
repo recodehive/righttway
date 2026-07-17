@@ -217,6 +217,10 @@ h1, h2, h3, h4 {
   to   { transform: translateX(-50%); }
 }
 
+.founder-track {
+  animation-duration: 70s;
+}
+
 /* ── Collage hero animations ─────────────────────────────── */
 @keyframes collage-fade-up {
   from { opacity: 0; transform: translateY(36px) scale(0.97); }

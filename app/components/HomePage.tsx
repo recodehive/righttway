@@ -47,6 +47,13 @@ function AnimatedStat({ value, label, index }: { value: string; label: string; i
   );
 }
 
+const founders = [
+  { img: '/images/Vasan CG.png', name: 'Vasan CG - The Founder', role: 'Founder and Director, Righttway', badge: 'Guru of Gurus' },
+  { img: '/images/faculty/co founder.jpeg', name: 'Prapitha Kishore', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
+  { img: '/images/faculty/sheena-vasan-biology.jpeg', name: 'Sheena A P', role: 'Director, Righttway', badge: 'Guru of Gurus' },
+  { img: '/images/faculty/Prabitha Sajeev 01.jpg', name: 'Prabitha Sajeev', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
+];
+
 const stats = [
   { value: '15+', label: 'Years of Excellence' },
   { value: '5000+', label: 'Students Shaped' },
@@ -214,33 +221,36 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Founder card */}
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <div className="card" style={{ textAlign: 'center', padding: 40, maxWidth: 320, width: '100%' }}>
-                <div style={{
-                  width: 120, height: 120, borderRadius: '50%',
-                  border: '4px solid #EAB308',
-                  background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
-                  margin: '0 auto 20px', position: 'relative', overflow: 'hidden',
-                }}>
-                  <Image src="/images/Vasan CG.png" alt="Vasan CG" fill style={{ objectFit: 'cover' }} sizes="140px" />
-                </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 20, color: '#020817', marginBottom: 6 }}>
-                 Vasan CG - The Founder
-                </div>
-                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 16 }}>
-                  Founder and Director, Righttway
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 16 }}>
-                  {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="#EAB308" color="#EAB308" />)}
-                </div>
-                <span className="badge badge-warning">Guru of Gurus</span>
+            {/* Founder card marquee */}
+            <div className="faculty-marquee" style={{ display: 'flex', justifyContent: 'center' }}>
+              <div className="faculty-track founder-track">
+                {[...founders, ...founders].map((f, i) => (
+                  <div key={i} className="card" style={{ textAlign: 'center', padding: 40, width: 320, flex: '0 0 auto' }}>
+                    <div style={{
+                      width: 120, height: 120, borderRadius: '50%',
+                      border: '4px solid #EAB308',
+                      background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                      margin: '0 auto 20px', position: 'relative', overflow: 'hidden',
+                    }}>
+                      <Image src={f.img} alt={f.name} fill style={{ objectFit: 'cover' }} sizes="140px" />
+                    </div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 20, color: '#020817', marginBottom: 6 }}>
+                      {f.name}
+                    </div>
+                    <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 16 }}>
+                      {f.role}
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: 4, marginBottom: 16 }}>
+                      {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="#EAB308" color="#EAB308" />)}
+                    </div>
+                    <span className="badge badge-warning">{f.badge}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* COURSES */}
       <section style={{ background: '#F1F5F9', padding: '80px 0' }}>
         <div className="container-max">
