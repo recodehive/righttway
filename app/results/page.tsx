@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { Star } from 'lucide-react';
 
@@ -31,7 +32,7 @@ const resultsByYear: Record<string, { name: string; exam: string; score: string;
 };
 
 export default function ResultsPage() {
-  const [activeYear, setActiveYear] = useState('2024');
+  const [activeYear, setActiveYear] = useState('2022');
   const results = resultsByYear[activeYear];
 
   return (
@@ -56,7 +57,7 @@ export default function ResultsPage() {
         <div className="container-max">
           {/* Year tabs */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 40, flexWrap: 'wrap' }}>
-            {['2024', '2023', '2022'].map(year => (
+            {['2022', '2023', '2024'].map(year => (
               <button
                 key={year}
                 onClick={() => setActiveYear(year)}
@@ -69,37 +70,69 @@ export default function ResultsPage() {
                   transition: 'all 0.2s',
                 }}
               >
-                {year}
+                {year === '2024' ? '2023 - 2024 batch' : year === '2023' ? '2024 -2025 batch' : year === '2022' ? '2025 - 2026 batch' : year}
               </button>
             ))}
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24 }}>
-            {results.map((r, i) => (
-              <div key={i} className="card" style={{ textAlign: 'center', padding: '32px 24px' }}>
-                <div style={{
-                  width: 80, height: 80, borderRadius: '50%',
-                  background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
-                  margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32,
-                }}>
-                  🎓
+          {activeYear === '2024' ? (
+            <div className="card" style={{ overflow: 'hidden', padding: 0 }}>
+              <Image
+                src="/images/2024.png"
+                alt="Congrats to our 2024 achievers"
+                width={1024}
+                height={1600}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          ) : activeYear === '2023' ? (
+            <div className="card" style={{ overflow: 'hidden', padding: 0 }}>
+              <Image
+                src="/images/2024%202nd%20image.jpeg"
+                alt="Congrats to our 2024-2025 batch achievers"
+                width={1024}
+                height={1600}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          ) : activeYear === '2022' ? (
+            <div className="card" style={{ overflow: 'hidden', padding: 0 }}>
+              <Image
+                src="/images/2025.jpeg"
+                alt="Congrats to our 2025-2026 batch achievers"
+                width={1024}
+                height={1600}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          ) : (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 24 }}>
+              {results.map((r, i) => (
+                <div key={i} className="card" style={{ textAlign: 'center', padding: '32px 24px' }}>
+                  <div style={{
+                    width: 80, height: 80, borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                    margin: '0 auto 16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32,
+                  }}>
+                    🎓
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 4 }}>
+                    {r.name}
+                  </div>
+                  <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 12 }}>
+                    {r.exam}
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 28, color: '#EAB308', marginBottom: 16 }}>
+                    {r.score}
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: 3, marginBottom: 12 }}>
+                    {[1,2,3,4,5].map(j => <Star key={j} size={14} fill="#EAB308" color="#EAB308" />)}
+                  </div>
+                  <span className="badge badge-warning">{r.badge}</span>
                 </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 18, color: '#020817', marginBottom: 4 }}>
-                  {r.name}
-                </div>
-                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#64748B', marginBottom: 12 }}>
-                  {r.exam}
-                </div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 28, color: '#EAB308', marginBottom: 16 }}>
-                  {r.score}
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: 3, marginBottom: 12 }}>
-                  {[1,2,3,4,5].map(j => <Star key={j} size={14} fill="#EAB308" color="#EAB308" />)}
-                </div>
-                <span className="badge badge-warning">{r.badge}</span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
