@@ -109,6 +109,7 @@ export default function HomePage() {
       <ScrollPopup />
       {/* HERO */}
       <section
+        className="hero-section"
         style={{
           background: '#020817',
           backgroundImage: 'radial-gradient(ellipse at 70% 50%, rgba(33,50,185,0.18) 0%, transparent 70%)',
@@ -128,7 +129,7 @@ export default function HomePage() {
         }} />
 
         <div className="container-max">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+          <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             {/* Left */}
             <div>
               <span className="badge badge-warning" style={{ marginBottom: 24 }}>
@@ -199,19 +200,19 @@ export default function HomePage() {
       {/* TRUST BAR */}
       <section style={{ background: '#F1F5F9', padding: '24px 0' }}>
         <div className="container-max">
-          <div style={{
+          <div className="trust-bar" style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             gap: 0, flexWrap: 'wrap',
           }}>
             {['8th', '9th', '10th','State Board', 'Since 2010'].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
+              <div key={i} className="trust-bar-item" style={{ display: 'flex', alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '0 28px' }}>
                   <CheckCircle size={16} color="#2132B9" />
                   <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, fontWeight: 600, color: '#475569' }}>
                     {item}
                   </span>
                 </div>
-                {i < 3 && <div style={{ width: 1, height: 24, background: '#E2E8F0' }} />}
+                {i < 3 && <div className="trust-bar-divider" style={{ width: 1, height: 24, background: '#E2E8F0' }} />}
               </div>
             ))}
           </div>
@@ -221,7 +222,7 @@ export default function HomePage() {
       {/* ABOUT */}
       <section style={{ padding: '80px 0', background: '#fff' }}>
         <div className="container-max">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+          <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
             <div>
               <span className="section-label">Our Story</span>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, lineHeight: '40px', color: '#020817', marginBottom: 20 }}>
@@ -326,7 +327,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="faculty-marquee">
-            <div className="faculty-track">
+            <div className="faculty-track team-track">
               {[...faculty, ...faculty].map((f, i) => (
                 <div key={i} className="card" style={{ textAlign: 'center', padding: '40px 32px', width: 280, flex: '0 0 auto' }}>
                   <div style={{

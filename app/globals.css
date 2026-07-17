@@ -194,6 +194,35 @@ h1, h2, h3, h4 {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-grid,
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .hero-section {
+    padding: 32px 0 40px !important;
+  }
+
+  .trust-bar {
+    row-gap: 12px !important;
+  }
+
+  .trust-bar-item {
+    justify-content: center !important;
+    flex: 0 0 50% !important;
+  }
+
+  .trust-bar-item:last-child {
+    flex: 0 0 100% !important;
+  }
+
+  .trust-bar-divider {
+    display: none !important;
+  }
+}
+
 /* ── Faculty auto-scroller ───────────────────────────────── */
 .faculty-marquee {
   overflow: hidden;
@@ -219,6 +248,10 @@ h1, h2, h3, h4 {
 
 .founder-track {
   animation-duration: 70s;
+}
+
+.team-track {
+  animation-duration: 55s;
 }
 
 /* ── Collage hero animations ─────────────────────────────── */
