@@ -7,11 +7,20 @@ export default function ScrollPopup() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
+    if (sessionStorage.getItem('achievementsPopupShown')) {
+      setDismissed(true);
+    }
+  }, []);
+
+  useEffect(() => {
     if (dismissed || show) return;
     const handleScroll = () => {
       const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
-      if (scrolled >= 0.7) setShow(true);
+      if (scrolled >= 0.7) {
+        setShow(true);
+        sessionStorage.setItem('achievementsPopupShown', '1');
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();

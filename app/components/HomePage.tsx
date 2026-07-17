@@ -54,6 +54,23 @@ const founders = [
   { img: '/images/faculty/Prabitha Sajeev 01.jpg', name: 'Prabitha Sajeev', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
 ];
 
+const faculty = [
+  { name: 'Mary Elsy Varghese', subject: 'Physics', exp: '11+ Years', img: '/images/faculty/mary-elsy-varghese-physics.jpeg' },
+  { name: 'Sanjana', subject: 'Chemistry', exp: '6+ Years', img: '/images/faculty/sanjana-chemistry.jpeg' },
+  { name: 'Rannya P S', subject: 'Geography', exp: '8+ Years', img: '/images/faculty/rannya-ps-geography.jpeg' },
+  { name: 'Honey Jaison', subject: 'Chemistry', exp: '9+ Years', img: '/images/faculty/honey-jaison-chemistry.jpeg' },
+  { name: 'Jithu V A', subject: 'Maths', exp: '7+ Years', img: '/images/faculty/jithu-va-maths.jpeg' },
+  { name: 'Praveesh K K', subject: 'Maths', exp: '13+ Years', img: '/images/faculty/praveesh-kk-maths.jpeg' },
+  { name: 'Riya A G', subject: 'Social Science', exp: '5+ Years', img: '/images/faculty/riya-ag-social.jpeg' },
+  { name: 'Rathnam', subject: 'History', exp: '15+ Years', img: '/images/faculty/rathnam-history.jpeg' },
+  { name: 'Remya Biju', subject: 'Maths', exp: '10+ Years', img: '/images/faculty/remya-biju-maths.jpeg' },
+  { name: 'Sheena Vasan', subject: 'Biology', exp: '12+ Years', img: '/images/faculty/sheena-vasan-biology.jpeg' },
+  { name: 'Vysali', subject: 'Hindi', exp: '4+ Years', img: '/images/faculty/vysali-hindi.jpeg' },
+  { name: 'Anjali', subject: 'English', exp: '9+ Years', img: '/images/faculty/anjali-english.jpeg' },
+  { name: 'Shiji', subject: 'Hindi', exp: '10+ Years', img: '/images/faculty/Shiji  hinid.jpeg' },
+  { name: 'Prapitha', subject: 'Hindi', exp: '10+ Years', img: '/images/faculty/co founder.jpeg' },
+];
+
 const stats = [
   { value: '15+', label: 'Years of Excellence' },
   { value: '5000+', label: 'Students Shaped' },
@@ -296,8 +313,43 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* TEAM */}
+      <section style={{ background: '#fff', padding: '100px 0' }}>
+        <div className="container-max">
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <span className="section-label">Our Team</span>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 40, color: '#020817', marginBottom: 16 }}>
+              Meet Our Expert Faculty
+            </h2>
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '28px', color: '#475569', maxWidth: 680, margin: '0 auto' }}>
+              Many of our teachers have been with Righttway for over 10 years, guiding students through every milestone from their first exam to their board results. Their experience and dedication are the foundation of every success story we celebrate.
+            </p>
+          </div>
+          <div className="faculty-marquee">
+            <div className="faculty-track">
+              {[...faculty, ...faculty].map((f, i) => (
+                <div key={i} className="card" style={{ textAlign: 'center', padding: '40px 32px', width: 280, flex: '0 0 auto' }}>
+                  <div style={{
+                    width: 110, height: 110, borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #E2E8F0 0%, #cbd5e1 100%)',
+                    margin: '0 auto 20px', position: 'relative', overflow: 'hidden',
+                  }}>
+                    <Image src={f.img} alt={f.name} fill style={{ objectFit: 'cover' }} sizes="110px" />
+                  </div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 19, color: '#020817', marginBottom: 8 }}>
+                    {f.name}
+                  </div>
+                  <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 15, color: '#64748B', marginBottom: 16 }}>{f.subject}</div>
+                  <span className="badge badge-default">{f.exp}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHY CHOOSE US */}
-      <section style={{ background: '#fff', padding: '80px 0' }}>
+      <section style={{ background: '#F1F5F9', padding: '80px 0' }}>
         <div className="container-max">
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <span className="section-label">Our Strengths</span>
