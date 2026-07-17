@@ -41,7 +41,7 @@ export default function AboutPage() {
             <div>
               <span className="section-label">Our Story</span>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, color: '#020817', marginBottom: 20 }}>
-                Founded by a Visionary Educator
+                Founded by a Visionary Educators
               </h2>
               <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569', marginBottom: 20 }}>
                 Righttway was established in 2010 with a clear mission: to create a coaching centre in Kunnamkulam that would stand apart through personal attention, rigorous academic standards, and genuine care for every student&apos;s future.

@@ -39,7 +39,7 @@ function AnimatedStat({ value, label, index }: { value: string; label: string; i
   return (
     <div
       className={`stat-badge stat-badge-${index + 1}`}
-      style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', borderRadius: 12, padding: '10px 18px', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', gap: 8 }}
+      style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', borderRadius: 12, padding: '10px 12px', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 4, textAlign: 'center' }}
     >
       <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 22, color: '#EAB308' }}>{count}{suffix}</span>
       <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 12, color: '#CBD5E1', fontWeight: 500 }}>{label}</span>
@@ -162,7 +162,7 @@ export default function HomePage() {
               </div>
 
               {/* Stats as compact badges below collage */}
-              <div style={{ display: 'flex', gap: 10, marginTop: 18, flexWrap: 'wrap', position: 'relative', zIndex: 2 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginTop: 18, position: 'relative', zIndex: 2 }}>
                 {stats.map((s, i) => (
                   <AnimatedStat key={i} value={s.value} label={s.label} index={i} />
                 ))}
@@ -201,7 +201,7 @@ export default function HomePage() {
             <div>
               <span className="section-label">Our Story</span>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, lineHeight: '40px', color: '#020817', marginBottom: 20 }}>
-                Founded by a Visionary Educator
+                Founded by a Visionary Educators
               </h2>
               <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569', marginBottom: 20 }}>
                 Righttway was founded in 2010 with a vision to establish a benchmark coaching institution in Kunnamkulam. For over 15 years, we have shaped thousands of students, providing personal attention and guided mentorship that goes beyond textbooks.
