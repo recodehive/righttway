@@ -16,6 +16,8 @@ export default function AboutPage() {
     { name: 'Sheena Vasan', subject: 'Biology', exp: '12+ Years', img: '/images/faculty/sheena-vasan-biology.jpeg' },
     { name: 'Vysali', subject: 'Hindi', exp: '4+ Years', img: '/images/faculty/vysali-hindi.jpeg' },
     { name: 'Anjali', subject: 'English', exp: '9+ Years', img: '/images/faculty/anjali-english.jpeg' },
+    { name: 'Shiji', subject: 'Hindi', exp: '10+ Years', img: '/images/faculty/Shiji  hinid.jpeg' },
+    { name: 'Prapitha', subject: 'Hindi', exp: '10+ Years', img: '/images/faculty/co founder.jpeg' },
   ];
 
   return (
