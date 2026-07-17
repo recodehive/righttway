@@ -29,6 +29,7 @@ const resultsByYear: Record<string, { name: string; exam: string; score: string;
     { name: 'Vivek Shenoy', exam: 'JEE Main 2022', score: '97.2 %ile', badge: 'Top 100' },
     { name: 'Dhanya Rajan', exam: 'NEET 2022', score: '638/720', badge: 'Top Rank' },
   ],
+  '2021': [],
 };
 
 export default function ResultsPage() {
@@ -57,7 +58,7 @@ export default function ResultsPage() {
         <div className="container-max">
           {/* Year tabs */}
           <div style={{ display: 'flex', gap: 8, marginBottom: 40, flexWrap: 'wrap' }}>
-            {['2022', '2023', '2024'].map(year => (
+            {['2022', '2023', '2024', '2021'].map(year => (
               <button
                 key={year}
                 onClick={() => setActiveYear(year)}
@@ -70,7 +71,7 @@ export default function ResultsPage() {
                   transition: 'all 0.2s',
                 }}
               >
-                {year === '2024' ? '2023 - 2024 batch' : year === '2023' ? '2024 -2025 batch' : year === '2022' ? '2025 - 2026 batch' : year}
+                {year === '2024' ? '2023 - 2024 batch' : year === '2023' ? '2024 -2025 batch' : year === '2022' ? '2025 - 2026 batch' : year === '2021' ? '2022 - 2023 batch' : year}
               </button>
             ))}
           </div>
@@ -100,6 +101,16 @@ export default function ResultsPage() {
               <Image
                 src="/images/2025.jpeg"
                 alt="Congrats to our 2025-2026 batch achievers"
+                width={1024}
+                height={1600}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </div>
+          ) : activeYear === '2021' ? (
+            <div className="card" style={{ overflow: 'hidden', padding: 0 }}>
+              <Image
+                src="/images/2022%20-%202023%20batch.jpg"
+                alt="Congrats to our 2022-2023 batch achievers"
                 width={1024}
                 height={1600}
                 style={{ width: '100%', height: 'auto', display: 'block' }}
