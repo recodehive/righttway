@@ -46,7 +46,7 @@ export default function AboutPage() {
       {/* Founder story */}
       <section style={{ background: '#fff', padding: '80px 0' }}>
         <div className="container-max">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+          <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
             <div>
               <span className="section-label">Our Story</span>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, color: '#020817', marginBottom: 20 }}>

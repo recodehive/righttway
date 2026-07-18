@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { MapPin, Phone, Mail, ChevronDown, ChevronUp, Send } from 'lucide-react';
 
 const faqs = [
@@ -29,6 +30,8 @@ const faqs = [
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', phone: '', grade: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -40,10 +43,30 @@ export default function ContactPage() {
     return errs;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
-    setSubmitted(true);
+
+    setSending(true);
+    setSendError(false);
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: form.name,
+          phone: form.phone,
+          grade: form.grade,
+          message: form.message || 'No additional message provided.',
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+      setSubmitted(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -66,7 +89,7 @@ export default function ContactPage() {
 
       <section style={{ background: '#F1F5F9', padding: '80px 0' }}>
         <div className="container-max">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start' }}>
+          <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start' }}>
             {/* Form */}
             <div>
               {submitted ? (
@@ -145,12 +168,19 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {sendError && (
+                      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 14, color: '#DC2626' }}>
+                        Something went wrong sending your message. Please try again or call us at +91 9846214009.
+                      </p>
+                    )}
+
                     <button
                       className="btn-primary"
                       onClick={handleSubmit}
-                      style={{ width: '100%', justifyContent: 'center', gap: 8 }}
+                      disabled={sending}
+                      style={{ width: '100%', justifyContent: 'center', gap: 8, opacity: sending ? 0.7 : 1, cursor: sending ? 'not-allowed' : 'pointer' }}
                     >
-                      <Send size={16} /> Submit Enquiry
+                      <Send size={16} /> {sending ? 'Sending...' : 'Submit Enquiry'}
                     </button>
                   </div>
                 </div>
