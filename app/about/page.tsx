@@ -6,8 +6,8 @@ export default function AboutPage() {
   const founders = [
     { img: '/images/Vasan CG.png', name: 'Vasan CG - The Founder', role: 'Founder and Director, Righttway', badge: 'Guru of Gurus' },
     { img: '/images/faculty/co founder.jpeg', name: 'Prapitha Kishore', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
-    { img: '/images/faculty/sheena-vasan-biology.jpeg', name: 'Sheena A P', role: 'Director, Righttway', badge: 'Guru of Gurus' },
-    { img: '/images/faculty/Prabitha Sajeev 01.jpg', name: 'Prabitha Sajeev', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
+    { img: '/images/faculty/sheena-vasan-biology.jpeg', name: 'Sheena Vasan', role: 'Director, Righttway', badge: 'Guru of Gurus' },
+    { img: '/images/faculty/Prabitha Sajeev 01.jpg', name: 'Prathibha Sajeev', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
   ];
 
   const faculty = [
