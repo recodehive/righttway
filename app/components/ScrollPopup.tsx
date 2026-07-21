@@ -4,13 +4,10 @@ import Image from 'next/image';
 
 export default function ScrollPopup() {
   const [show, setShow] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
-
-  useEffect(() => {
-    if (sessionStorage.getItem('achievementsPopupShown')) {
-      setDismissed(true);
-    }
-  }, []);
+  const [dismissed, setDismissed] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return sessionStorage.getItem('achievementsPopupShown') !== null;
+  });
 
   useEffect(() => {
     if (dismissed || show) return;

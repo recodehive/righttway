@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, FlaskConical, BarChart3, Trophy, Heart, Video, Clock, Users, ArrowRight } from 'lucide-react';
+import { BookOpen, FlaskConical, BarChart3, Video, Clock, Users, ArrowRight } from 'lucide-react';
 
 const courses = [
   {

@@ -5,24 +5,24 @@ import { Star, Award, Target, BookOpen } from 'lucide-react';
 export default function AboutPage() {
   const founders = [
     { img: '/images/Vasan CG.png', name: 'Vasan CG - The Founder', role: 'Founder and Director, Righttway', badge: 'Guru of Gurus' },
-    { img: '/images/faculty/co founder.jpeg', name: 'Prapitha Kishore', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
+    { img: '/images/faculty/co founder.jpeg', name: 'Prapitha Kishore', role: 'Co-partner, Righttway (MSc CS, NET) — 16+ Years', badge: 'Guru of Gurus' },
     { img: '/images/faculty/sheena-vasan-biology.jpeg', name: 'Sheena Vasan', role: 'Director, Righttway', badge: 'Guru of Gurus' },
     { img: '/images/faculty/Prabitha Sajeev 01.jpg', name: 'Prathibha Sajeev', role: 'Co-partner, Righttway', badge: 'Guru of Gurus' },
   ];
 
   const faculty = [
-    { name: 'Mary Elsy Varghese', subject: 'Physics', exp: '11+ Years', img: '/images/faculty/mary-elsy-varghese-physics.jpeg' },
-    { name: 'Sanjana', subject: 'Chemistry', exp: '6+ Years', img: '/images/faculty/sanjana-chemistry.jpeg' },
-    { name: 'Rannya P S', subject: 'Geography', exp: '8+ Years', img: '/images/faculty/rannya-ps-geography.jpeg' },
-    { name: 'Honey Jaison', subject: 'Chemistry', exp: '9+ Years', img: '/images/faculty/honey-jaison-chemistry.jpeg' },
-    { name: 'Jithu V A', subject: 'Maths', exp: '7+ Years', img: '/images/faculty/jithu-va-maths.jpeg' },
+    { name: 'Mary Elsy Varghese', subject: 'Physics (MSc)', exp: '6+ Years', img: '/images/faculty/mary-elsy-varghese-physics.jpeg' },
+    { name: 'Sanjana M S', subject: 'Maths (MSc)', exp: '5+ Years', img: '/images/faculty/sanjana-chemistry.jpeg' },
+    { name: 'Rennya', subject: 'Social Science (MA Economics, B.Ed, KTET)', exp: '2+ Years', img: '/images/faculty/rannya-ps-geography.jpeg' },
+    { name: 'Honey Jaison', subject: 'Physics (MSc, B.Ed Physical Science)', exp: '3+ Years', img: '/images/faculty/honey-jaison-chemistry.jpeg' },
+    { name: 'Jithu', subject: 'Mechanical Engineering (B.Tech)', exp: '8+ Years', img: '/images/faculty/jithu-va-maths.jpeg' },
     { name: 'Praveesh K K', subject: 'Maths', exp: '13+ Years', img: '/images/faculty/praveesh-kk-maths.jpeg' },
-    { name: 'Riya A G', subject: 'Social Science', exp: '5+ Years', img: '/images/faculty/riya-ag-social.jpeg' },
-    { name: 'Rathnam', subject: 'History', exp: '15+ Years', img: '/images/faculty/rathnam-history.jpeg' },
-    { name: 'Remya Biju', subject: 'Maths', exp: '10+ Years', img: '/images/faculty/remya-biju-maths.jpeg' },
-    { name: 'Sheena Vasan', subject: 'Biology', exp: '12+ Years', img: '/images/faculty/sheena-vasan-biology.jpeg' },
-    { name: 'Vysali', subject: 'Hindi', exp: '4+ Years', img: '/images/faculty/vysali-hindi.jpeg' },
-    { name: 'Anjali', subject: 'English', exp: '9+ Years', img: '/images/faculty/anjali-english.jpeg' },
+    { name: 'Riya A G', subject: 'Social Science (BA History, B.Ed, MA Malayalam)', exp: '1+ Years', img: '/images/faculty/riya-ag-social.jpeg' },
+    { name: 'Rathnavalli KK', subject: 'Hindi (MA Economics, Hindi TTC)', exp: '31+ Years', img: '/images/faculty/rathnam-history.jpeg' },
+    { name: 'Remya', subject: 'Maths (BSc, DCA, DTP)', exp: '6+ Years', img: '/images/faculty/remya-biju-maths.jpeg' },
+    { name: 'Sheena Vasan', subject: 'Commerce (M.Com, HDC)', exp: '10+ Years', img: '/images/faculty/sheena-vasan-biology.jpeg' },
+    { name: 'Vaishali', subject: 'Hindi (BA)', exp: '6+ Years', img: '/images/faculty/vysali-hindi.jpeg' },
+    { name: 'Anjaly', subject: 'English (BA, B.Ed)', exp: '15+ Years', img: '/images/faculty/anjali-english.jpeg' },
     { name: 'Shiji', subject: 'Hindi', exp: '10+ Years', img: '/images/faculty/Shiji  hinid.jpeg' },
     { name: 'Prapitha', subject: 'Hindi', exp: '10+ Years', img: '/images/faculty/co founder.jpeg' },
   ];
@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div>
               <span className="section-label">Our Story</span>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 36, color: '#020817', marginBottom: 20 }}>
-                Founded by a Visionary Educators
+                Founded by Visionary Educators
               </h2>
               <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 18, lineHeight: '29.25px', color: '#475569', marginBottom: 20 }}>
                 Righttway was established in 2010 with a clear mission: to create a coaching centre in Kunnamkulam that would stand apart through personal attention, rigorous academic standards, and genuine care for every student&apos;s future.
